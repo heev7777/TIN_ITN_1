@@ -25,11 +25,12 @@ Make sure you have the following installed on your system:
 ### Steps
 1. **Clone the repository:** 
 \```bash
-git clone <repository_link>
+git clone https://github.com/heev7777/TIN_ITN_1.git
 \```
 
 2. **Navigate into the project directory:** 
 \```bash
+cd TIN_ITN_1
 cd food-recipe-website
 \```
 
