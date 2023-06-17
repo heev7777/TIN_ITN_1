@@ -59,8 +59,7 @@ router.post('/register', [
       if (user) {
         return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
       }
-      
-      // New code here: check if the username is already in use
+            
       let userWithUsername = await User.findOne({ username });
       if (userWithUsername) {
         return res.status(400).json({ errors: [{ msg: 'Username is already in use' }] });
