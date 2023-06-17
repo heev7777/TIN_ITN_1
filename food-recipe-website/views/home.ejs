@@ -1,0 +1,16 @@
+<%- include('header') %>
+<div class="container">
+  <div class="jumbotron mt-5">
+    <h1 class="display-4">Welcome to YUMMY!</h1>
+    <p class="lead">Explore and share your favorite recipes.</p>
+    <hr class="my-4">
+    <% if (!user) { %>
+        <p>Join us today to share and discover new recipes.</p>
+        <a class="btn btn-primary btn-lg" href="/users/register" role="button">Sign Up Now</a>
+    <% } else { %>
+        <p>Welcome back, <%= user.username %>!</p>
+        <a class="btn btn-primary btn-lg" href="/recipes/dashboard" role="button">Check out Recipes</a>
+    <% } %>
+  </div>
+</div>
+<%- include('footer') %>

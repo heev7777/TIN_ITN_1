@@ -1,0 +1,20 @@
+<h1><%= recipe.title %></h1>
+<p><strong>Ingredients:</strong></p>
+<ul>
+    <% recipe.ingredients.forEach(ingredient => { %>
+    <li><%= ingredient %></li>
+    <% }) %>
+</ul>
+
+<p><strong>Instructions:</strong></p>
+<ol>
+    <% recipe.instructions.forEach(instruction => { %>
+    <li><%= instruction %></li>
+    <% }) %>
+</ol>
+
+<a href="/recipes/edit/<%= recipe._id %>">Edit Recipe</a>
+<form action="/recipes/<%= recipe._id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete Recipe</button>
+</form>

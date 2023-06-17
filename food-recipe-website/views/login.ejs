@@ -1,0 +1,18 @@
+<%- include('header') %>
+<body>
+    <h1>Login</h1>
+
+    <% if(success_msg != '') { %> 
+    <div class="alert alert-success"><%= success_msg %></div> 
+    <% } %>
+    <% if(error_msg != '') { %> 
+    <div class="alert alert-danger"><%= error_msg %></div> 
+    <% } %>
+
+    <form action="/users/login" method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      
+<%- include('footer') %>

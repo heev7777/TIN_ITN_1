@@ -1,0 +1,21 @@
+<%- include('header') %>
+
+<div class="public-recipes">
+    <h1>Public Recipes</h1>
+
+    <% if (recipes && recipes.length > 0) { %>
+        <div class="recipes">
+            <% recipes.forEach(function(recipe){ %>
+                <div class="recipe">
+                    <h3><%= recipe.name %></h3>
+                    <p>Ingredients: <%= recipe.ingredients.join(', ') %></p>
+                    <p>Instructions: <%= recipe.instructions.join(', ') %></p>
+                </div>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p>No public recipes found.</p>
+    <% } %>
+</div>
+
+<%- include('footer') %>

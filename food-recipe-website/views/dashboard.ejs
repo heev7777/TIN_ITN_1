@@ -1,0 +1,53 @@
+<%- include('header') %>
+
+<div class="dashboard">
+    <% if (user && user.name) { %>
+        <h1>Welcome back, <%= user.name %>!</h1>
+    <% } else { %>
+        <h1>Welcome back!</h1>
+    <% } %>
+
+    <div class="user-details">
+        <% if (user && user.recipes) { %>
+            <p>You have added <%= user.recipes.length %> recipes so far.</p>
+            <p><a href="/recipes/add-recipe">Add a new recipe</a></p>
+        <% } %>
+    </div>
+
+    <div class="public-recipes-link">
+        <p><a href="/recipes/public">View Public Recipes</a></p>
+    </div>
+
+    <% if (user && user.recipes && user.recipes.length > 0) { %>
+        <div class="recipes">
+            <h2>Your Recipes</h2>
+            <% user.recipes.forEach(function(recipe){ %>
+                <div class="recipe">
+                    <h3><a href="/recipes/<%= recipe._id %>"><%= recipe.name %></a></h3>
+                    <p><%= recipe.description %></p>
+                    <div class="buttons">
+                        <a href="/recipes/edit/<%= recipe._id %>" class="edit-button">Edit</a>
+                        <br></br>
+                        <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST" class="edit-button">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+
+    <% if (user && user.favorites && user.favorites.length > 0) { %>
+        <div class="favorites">
+            <h2>Your Favorites</h2>
+            <% user.favorites.forEach(function(recipe){ %>
+                <div class="recipe">
+                    <h3><a href="/recipes/<%= recipe._id %>"><%= recipe.title %></a></h3>
+                    <p><%= recipe.description %></p>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+</div>
+
+<%- include('footer') %>

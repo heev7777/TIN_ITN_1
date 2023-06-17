@@ -1,0 +1,13 @@
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <% if (!user) { %>
+        <li><a href="/users/login">Login</a></li>
+        <li><a href="/users/register">Register</a></li>
+        <% } else { %>
+        <li><a href="/recipes/new">New Recipe</a></li>
+        <li><a href="/recipes">All Recipes</a></li>
+        <li><a href="/users/logout">Logout</a></li>
+        <% } %>
+    </ul>
+</nav>

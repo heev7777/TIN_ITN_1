@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/main.css" />
+    <title>YUMMY</title>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <% if (!user) { %>
+        <div class="topnav-right">
+            <a href="/users/login">Login</a>
+            <a href="/users/register">Register</a>
+        </div>
+        <% } else { %>
+        <div class="topnav-right">
+            <a href="/users/logout">Logout</a>
+        </div>
+        <% } %>
+    </div>

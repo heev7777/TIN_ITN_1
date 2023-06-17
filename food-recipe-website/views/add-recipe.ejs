@@ -1,0 +1,61 @@
+<%- include('header') %>
+
+<div class="add-recipe">
+    <h2>Add Recipe</h2>
+  
+    <form action="/recipes/" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" required minlength="3" maxlength="50">
+      </div>
+  
+      <div class="form-group">
+        <label for="ingredients">Ingredients</label>
+        <textarea name="ingredients" id="ingredients" rows="5" required></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="instructions">Instructions</label>
+        <textarea name="instructions" id="instructions" rows="10" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="isPublic">Make this recipe public?</label>
+        <input type="checkbox" name="isPublic" id="isPublic">
+      </div>
+  
+      <button type="submit">Add Recipe</button>
+    </form>
+</div>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function(e) {
+        const ingredients = document.querySelector("#ingredients").value.split('\n');
+        if (ingredients.some(ingredient => ingredient.trim() === '')) {
+            e.preventDefault();
+            alert("Ingredients cannot be empty lines.");
+        }
+    });
+</script>
+
+<script>
+    document.getElementById('add-recipe-form').addEventListener('submit', function(event) {
+        var name = document.getElementById('name').value;
+        var title = document.getElementById('title').value;
+        var ingredients = document.getElementById('ingredients').value;
+        var instructions = document.getElementById('instructions').value;
+
+        if (!name || !title || !ingredients || !instructions) {
+            event.preventDefault();
+            alert('All fields are required.');
+        }
+    });
+</script>
+  
+<%- include('footer') %>
+  
