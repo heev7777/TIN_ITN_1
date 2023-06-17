@@ -46,7 +46,7 @@ router.post(
       user.recipes.push(recipe.id);
       await user.save();
 
-      res.redirect('/recipes/dashboard');  // redirect here after saving the recipe
+      res.redirect('/recipes/dashboard'); 
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server error');
@@ -83,7 +83,7 @@ router.get('/add-recipe', ensureAuthenticated, (req, res) => {
 router.get('/public', async (req, res) => {
   try {
     let recipes = await Recipe.find({ isPublic: true });
-    res.render('public-recipes', { recipes }); // Create a new EJS file for this view
+    res.render('public-recipes', { recipes });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server error');
@@ -142,7 +142,7 @@ router.get('/edit/:id', ensureAuthenticated, async (req, res) => {
 
     if (!recipe) return res.status(404).json({ msg: 'Recipe not found' });
 
-    res.render('edit-recipe', { recipe }); // Make sure to create a 'edit-recipe.ejs' file in your views folder
+    res.render('edit-recipe', { recipe });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server error');
@@ -155,7 +155,7 @@ router.get('/:id', ensureAuthenticated, async (req, res) => {
 
     if (!recipe) return res.status(404).json({ msg: 'Recipe not found' });
 
-    res.render('recipe-detail', { recipe }); // Make sure to create a 'recipe-detail.ejs' file in your views folder
+    res.render('recipe-detail', { recipe });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server error');
